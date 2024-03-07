@@ -28,9 +28,6 @@ function countOccurrences(str, word) {
  return str.split(word).length - 1;
 }
 
-
-
-
 // Count occurrences of "the"
 const theCount = countOccurrences(story, "the");
 console.log({theCount});
