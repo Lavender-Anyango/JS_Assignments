@@ -5,7 +5,7 @@ function reverseStringsInArray(arr) {
     console.log(reversedStrings);
 }
 
-// Example usage
+// Example
 reverseStringsInArray(["Kenya", "Uganda", "India", "Burundi"]);
 
 
