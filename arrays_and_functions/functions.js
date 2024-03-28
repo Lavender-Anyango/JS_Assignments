@@ -1,7 +1,6 @@
 // Q1:Given an array of strings, use a function to reverse all the elements in the string in ascending order and the specific elements in descending order
 
 function reverseStringsInArray(arr) {
-    // Map over the array to reverse each string
     const reversedStrings = arr.map(str => [...str].reverse().join(''));
     console.log(reversedStrings);
 }
