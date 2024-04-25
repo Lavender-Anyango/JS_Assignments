@@ -1,4 +1,6 @@
 
+// Question 1
+
 class Car {
     constructor(make, model, year,  isAvailable) {
        this.make = make;
@@ -59,31 +61,35 @@ class Question{
 
 }
 
-let quiz = new Question("Bananas are?", ['Red', 'Yellow', 'Green'], "Yellow");
+let quiz1 = new Question("Bananas are?", ['Red', 'Yellow', 'Green'], "Yellow");
 
-console.log(quiz.checkAnswer("Yellow"));
+console.log(quiz1.checkAnswer("Yellow"));
 
 
-class Quiz{
-    constructor(questions, currentQuestionIndex, score){
-        this.questions = questions; //array
-        this.currentQuestionIndex = currentQuestionIndex; // number
-        this.score = score; //number
+
+
+class Quiz {
+    constructor(questions, currentQuestionIndex, score) {
+        this.questions = []
+        this.currentQuestionIndex = 0
+        this.score = 0
     }
-
-    addQuestion(quiz){
-        return this.questions.push(quiz)
+    addQuestion(question) {
+        this.questions.push(question);
     }
-
-    nextQuestion(){
-        return this.currentQuestionIndex +=1; 
+    nextQuestion() {
+        this.currentQuestionIndex +=1
     }
-
-    submitAnswer(answer){
-        let result = this.checkAnswer(answer);
-        if (result === true){
-            
+    submitAnswer(userAnswer) {
+        const currentQuestion = this.questions[this.currentQuestionIndex];
+        if (currentQuestion.checkAnswer(userAnswer)) {
+            this.score++;
         }
-
     }
 }
+const quiz2 = new Quiz();
+const question = new Question("How many students are in Ada Lab?", ["5", "32", "30", "31"], "31");
+quiz2.addQuestion(question);
+const userAnswer = "31";
+quiz2.submitAnswer(userAnswer);
+console.log("Total score:", quiz2.score);
