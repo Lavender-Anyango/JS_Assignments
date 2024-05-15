@@ -1,16 +1,10 @@
 // Q1: Write an asynchronous function that accepts a message string and a delay time in milliseconds. The function should log the message to the console after the specified delay time.
 
 
-function delay(time) {
-    return new Promise(resolve => {
-      setTimeout(resolve, time);
-    });
-  }
-  
-  async function logMessage(message, delayTime) {
-    await delay(delayTime);
-    console.log(message);
-  }
+async function logMessage(message, delayTime){
+    await new Promise(resolve => setTimeout(resolve, delayTime));
+    console.log(message)
+}
   
   logMessage('Yaay, you did it!', 3000);
 
@@ -18,7 +12,7 @@ function delay(time) {
   //Q2:  You have an array of user IDs and a function getUserData(id) that returns a Promise with user data when given a user ID. Write an asynchronous function that fetches and logs the data for each user ID one by one, in sequence.
 
 async function getUserData(id) {
-    await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate network delay
+    await new Promise((resolve) => setTimeout(resolve, 3000)); 
     return `User data for ID ${id}`;
 }
 
@@ -96,4 +90,10 @@ async function executeWithRetry(taskName, retries, failureProbability) {
 }
 
 executeWithRetry("SampleTask", 3, 0.5);
+
+
+async function logMessage(message, delayTime){
+    await new Promise(resolve => setTimeout(resolve, delayTime));
+    console.log(message)
+}
 
